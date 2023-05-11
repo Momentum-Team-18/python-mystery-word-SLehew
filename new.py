@@ -15,25 +15,24 @@ def play_game():
 
     for letter in temp_word:
         letters.append(letter)
-    # while keys < value_length:
+
     print(letters)
     #     keys.append()
     for letter in temp_word:
         blanks.append('_ ')
-    print(blanks)
 
-    while guesses > 0:
+    while guesses > 0 and '_' not in blanks:
         guess = input(
-            "Guess a letter, your mystery word has " + str(num_letters))
-        if letter in temp_word:
+            "Guess a letter, your mystery word has " + str(num_letters) + " characters. " + ' '.join(blanks))
+        if guess in temp_word:
             for i in range(len(temp_word)):
                 if letters[i] == guess:
                     blanks[i] = guess
-            print("That letter is in the word!" + ' '.join(blanks))
+                # print("That letter is in the word! ")
         else:
-            print("Nope, that letter is not part of the mystery word!")
+            print("Nope, that letter is not part of the mystery word! ")
             guesses -= 1
-            print("You have " + str(guesses) + "remaining guesses.")
+            print("You have " + str(guesses) + "remaining guesses. ")
 
 
 if __name__ == "__main__":
